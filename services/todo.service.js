@@ -51,18 +51,18 @@ function query(filterBy) {
 
 
 
-            if (filterBy) {
-                const regex = new RegExp(filterBy.task, 'i')
-                if (filterBy.task) todos = todos.filter(todo => regex.test(todo.task))
+        if (filterBy) {
+            const regex = new RegExp(filterBy.task, 'i')
+            if (filterBy.task) todos = todos.filter(todo => regex.test(todo.task))
 
-                if (filterBy.status && typeof filterBy.status !== 'string') {
-                    todos = todos.filter((todo) => todo.isDone)
-                } else if (filterBy.status === false) {
-                    todos = todos.filter((todo) => !todo.isDone)
-                } else {
-                    todos = todos
-                }
+            if (filterBy.status && typeof filterBy.status !== 'string') {
+                todos = todos.filter((todo) => todo.isDone)
+            } else if (filterBy.status === false) {
+                todos = todos.filter((todo) => !todo.isDone)
+            } else {
+                todos = todos
             }
+        }
 
 
         return todos
@@ -87,7 +87,9 @@ function _add(addedTodo) {
 }
 
 function _update(updatedTodo) {
+    console.log('updatedTodo:',updatedTodo)
     updatedTodo.modifiedAt = Date.now()
+    updatedTodo.isDone = updatedTodo.isDone
     return storageService.put(KEY, updatedTodo)
 }
 

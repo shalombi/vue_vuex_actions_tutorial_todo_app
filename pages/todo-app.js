@@ -48,7 +48,9 @@ export default {
         },
 
         toggleIsDone(todo) {
-            this.$store.commit({ type: 'toggleIsDone', todo })
+            const updatedTodo = { ...todo, isDone: !todo.isDone }
+            console.log(updatedTodo)
+            this.$store.dispatch({ type: 'toggleIsDone', todo: updatedTodo })
         }
     },
 

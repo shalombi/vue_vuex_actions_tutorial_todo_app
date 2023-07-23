@@ -36,17 +36,22 @@ export const todoModule = {
     },
 
     toggleIsDone(state, { todo }) {
-      const newTodo = { ...todo, isDone: !todo.isDone }
+
       let newTodos = [...state.todos]
-      newTodos = newTodos.map(t => t._id !== newTodo._id ? t : newTodo)
+      newTodos = newTodos.map(t => console.log(t, todo))
       state.todos = [...newTodos]
+
+      // const newTodo = { ...todo, isDone: !todo.isDone }
+      // let newTodos = [...state.todos]
+      // newTodos = newTodos.map(t => t._id !== newTodo._id ? t : newTodo)
+      // state.todos = [...newTodos]
     },
 
     setIsLoading(state, { isLoading }) {
       state.isLoading = isLoading
     },
 
-   
+
   },
   getters: {
     todos({ todos }) {
@@ -90,6 +95,23 @@ export const todoModule = {
           commit({ type: 'setTodos', todos })
         })
     },
+
+
+    getTodoById(context, { todoId }) {
+      console.log(context)
+      return todoService.getById(todoId)
+
+
+      
+    },
+
+    toggleIsDone({ commit }, { todo }) {
+      console.log(todo)
+      todoService.save(todo)
+      // .then(todo => {
+      //   commit({ type: 'toggleIsDone', todo})
+      // })
+    }
   }
 
 }
