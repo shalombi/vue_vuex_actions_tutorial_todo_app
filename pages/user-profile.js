@@ -13,12 +13,6 @@ export default {
                     placeholder="update name.."
                     type="text"
                     />
-                    <!-- <input 
-                    v-model="userToEdit.favColor"
-                    type="color"
-                     name="favColor"
-                    value=""
-                      /> -->
 
                     <button>save</button>
                     
@@ -32,11 +26,10 @@ export default {
         }
     },
     created() {
-        // this.user = this.$store.state.user
     },
     computed: {
         user() {
-            return this.$store.state.user
+            return this.$store.getters.user
         }
     },
     methods: {

@@ -3,7 +3,6 @@ import { utilService } from "../services/util.service.js"
 export default {
     template: `
     <section class="filterBy">
-        <!-- <pre>{{ filterBy }}</pre> -->
         <form @submit.prevent="filter">
 
             <input 
@@ -45,11 +44,6 @@ export default {
 
     },
     methods: {
-
-        // filter() {
-        //     console.log(typeof this.filterBy.status)
-        //     this.$store.commit({ type: 'setFilterBy', filterBy: this.filterBy })
-        // }
     },
     computed: {
     }

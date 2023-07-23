@@ -1,5 +1,5 @@
-import { todoModule } from "./todo.store.js"
-import { userModule } from "./user.store.js"
+import { todoModule } from "./modules/todo.store.js"
+import { userModule } from "./modules/user.store.js"
 
 const { createStore } = Vuex
 
